@@ -136,3 +136,11 @@ fname=${fname##*/}
 
 
 perl /utils/appz/ensembl-tools/ensembl-tools-release-77/scripts/variant_effect_predictor/filter_vep.pl -i $VEP.txt -filter "SYMBOL in gene_symbols.txt" > output.txt
+
+
+##############################################################
+# Remove a list of positions with specific mutations from VCF
+#############################################################
+
+sed -E "/LacZ\t(679\t\.\tG\tA|2238\t\.\tA\tT|2242\t\.\tG\tC|2246\t\.\tC\tT|2249\t\.\tG\tC)/d" $i > $i.filtered.txt
+
