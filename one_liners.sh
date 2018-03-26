@@ -144,3 +144,9 @@ perl /utils/appz/ensembl-tools/ensembl-tools-release-77/scripts/variant_effect_p
 
 sed -E "/LacZ\t(679\t\.\tG\tA|2238\t\.\tA\tT|2242\t\.\tG\tC|2246\t\.\tC\tT|2249\t\.\tG\tC)/d" $i > $i.filtered.txt
 
+
+
+# Takes input as dbSNP text file format, and converts to standard VCF using GATK
+
+java -jar $GATK -R $mm10min -T VariantsToVCF --variant:OLDDBSNP $variants -o $variants.vcf
+
